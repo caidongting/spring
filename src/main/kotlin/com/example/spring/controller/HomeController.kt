@@ -1,4 +1,4 @@
-package com.example.spring
+package com.example.spring.controller
 
 import com.example.spring.service.UserService
 import org.slf4j.Logger

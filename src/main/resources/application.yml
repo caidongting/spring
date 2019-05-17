@@ -5,10 +5,17 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/spring
+    url: jdbc:mysql://localhost:3306/spring?serverTimezone=UTC
     username: caidt
     password: 257701
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
 #  mvc:
 #    view:
 #      prefix: classpath:/templates/

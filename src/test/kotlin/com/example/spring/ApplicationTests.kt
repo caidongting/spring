@@ -13,4 +13,22 @@ class ApplicationTests {
   fun contextLoads() {
   }
 
+//  private var mvc: MockMvc? = null
+//
+//  @Before
+//  @Throws(Exception::class)
+//  fun setUp() {
+//    mvc = MockMvcBuilders.standaloneSetup(HelloController()).build()
+//  }
+//
+//  @Test
+//  @Throws(Exception::class)
+//  fun getHello() {
+//    mvc!!.perform(MockMvcRequestBuilders.get("/hello")
+//       .accept(MediaType.APPLICATION_JSON))
+//       .andExpect(MockMvcResultMatchers.status().isOk)
+//       .andDo(MockMvcResultHandlers.print())
+//       .andReturn()
+//  }
+
 }
