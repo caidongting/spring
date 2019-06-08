@@ -12,9 +12,23 @@ spring:
 
   jpa:
     database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: false
+    show-sql: true
     hibernate:
       ddl-auto: update
-    show-sql: true
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    # Additional native properties to set on the JPA provider.
+    properties:
+      sessionFactory: org.springframework.orm.hibernate4.LocalSessionFactoryBean
+      hibernate:
+        dialect:
+          store_engine: innodb
+
+    mapping-resources: classpath:hibernate.xml
 
 #  mvc:
 #    view:
@@ -35,8 +49,6 @@ mybatis:
 logging:
   config: classpath:logback.xml
   path: logs/
-
-
 
 
 

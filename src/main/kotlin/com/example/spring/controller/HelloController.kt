@@ -18,7 +18,7 @@ class HelloController {
   }
 
   @RequestMapping("/getUser")
-  fun getUser():String {
+  fun getUser(): String {
     return "name:${properties.name}, age:${properties.age}"
   }
 }
