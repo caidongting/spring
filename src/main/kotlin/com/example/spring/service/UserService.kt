@@ -26,7 +26,9 @@ open class UserServiceImpl : UserService {
 
   @Transactional(readOnly = true, isolation = Isolation.DEFAULT)
   override fun findUser(id: Int): User? {
-    return userJpa.findById(id).orElse(null)
+
+    return userJpa.getX(id)
+//    return userJpa.findByIdOrNull(id)
   }
 
   @Transactional(readOnly = true)
