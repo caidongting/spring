@@ -2,13 +2,11 @@ package com.example.spring.mapper
 
 import com.example.spring.entity.User
 import org.apache.ibatis.annotations.*
-import org.springframework.stereotype.Repository
 
 interface AbstractDao
 
 @Mapper
-@Repository
-interface UserDao : AbstractDao {
+interface UserMapper : AbstractDao {
   @Select("SELECT * FROM users where id = #{id}")
   @Results(
       Result(property = "id", column = "id"),

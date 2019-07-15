@@ -9,6 +9,7 @@ spring:
     username: caidt
     password: 257701
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
 
   jpa:
     database: mysql
@@ -23,12 +24,26 @@ spring:
 
     # Additional native properties to set on the JPA provider.
     properties:
+      # 用法见userJpa, 可以给jpa里面添加自定义方法，在postfix=impl后缀的实现即可调用，无须继承
+      repository-impl-postfix: impl
       sessionFactory: org.springframework.orm.hibernate4.LocalSessionFactoryBean
       hibernate:
         dialect:
           store_engine: innodb
 
     mapping-resources: classpath:hibernate.xml
+
+  redis:
+    host: 192.168.199.240
+    port: 6379
+    password: caidt
+
+    jedis:
+      pool:
+        max-active: 60
+        max-idle: 30
+        max-wait: 1000
+    timeout: 0
 
 #  mvc:
 #    view:
