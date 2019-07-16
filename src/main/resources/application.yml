@@ -1,7 +1,7 @@
 server:
   port: 8080
-  servlet:
-    context-path: /
+#  servlet:
+#    context-path: /
 
 spring:
   datasource:
@@ -10,6 +10,8 @@ spring:
     password: 257701
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
+  #    schema: classpath:schema.sql
+  #    data: classpath:data.sql
 
   jpa:
     database: mysql
@@ -40,9 +42,10 @@ spring:
 
     jedis:
       pool:
-        max-active: 60
-        max-idle: 30
-        max-wait: 1000
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
     timeout: 0
 
 #  mvc:
@@ -65,7 +68,22 @@ logging:
   config: classpath:logback.xml
   path: logs/
 
+  level:
+    com.example.spring: debug
 
+
+#---
+#spring:
+#  profiles: test
+#  # 数据库配置
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: root
+#    password: 123456
+#    driver-class-name: org.h2.Driver
+#    schema: classpath:schema.sql
+#    data: classpath:data.sql
+#...
 
 
 ---

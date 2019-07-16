@@ -1,4 +1,4 @@
-package com.example.spring.mapper
+package com.example.spring.jpa
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor

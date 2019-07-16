@@ -1,7 +1,7 @@
 package com.example.spring.service
 
 import com.example.spring.entity.User
-import com.example.spring.mapper.UserJpa
+import com.example.spring.jpa.UserJpa
 import com.example.spring.mapper.UserMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Primary
@@ -18,7 +18,7 @@ interface UserService {
   fun find(name: String, password: String): Boolean
 }
 
-//@Primary
+@Primary
 @Service
 open class UserServiceImpl : UserService {
 
@@ -40,7 +40,7 @@ open class UserServiceImpl : UserService {
   }
 }
 
-@Primary
+//@Primary
 @Service
 open class UserServiceImpl2 : UserService {
 

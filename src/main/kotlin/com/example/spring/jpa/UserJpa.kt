@@ -1,4 +1,4 @@
-package com.example.spring.mapper
+package com.example.spring.jpa
 
 import com.example.spring.entity.User
 import org.slf4j.LoggerFactory

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam
 class HomeController {
 
   @Autowired
-  lateinit var userService: UserService
+  private lateinit var userService: UserService
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
 

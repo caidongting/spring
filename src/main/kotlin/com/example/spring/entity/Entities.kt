@@ -10,7 +10,7 @@ import javax.persistence.*
 )
 data class User(
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     val id: Int,
     @Column(name = "name")
@@ -28,3 +28,38 @@ data class Player(
     @Column(name = "name")
     val name: String
 )
+
+@Entity
+@Table(name = "space")
+data class Space(
+
+    @Id
+    @Column(name = "user_id")
+    val userId: Int,
+
+    @Column(name = "space_id")
+    val spaceId: Int,
+
+    @Column(name = "context", columnDefinition = "blob")
+    val context: ByteArray
+) {
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (other !is Space) return false
+
+    if (userId != other.userId) return false
+    if (spaceId != other.spaceId) return false
+    if (!context.contentEquals(other.context)) return false
+
+    return true
+  }
+
+  override fun hashCode(): Int {
+    var result = userId
+    result = 31 * result + spaceId
+    result = 31 * result + context.contentHashCode()
+    return result
+  }
+
+
+}

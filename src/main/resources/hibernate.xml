@@ -7,6 +7,7 @@
 
         <mapping class="com.example.spring.entity.User"/>
         <mapping class="com.example.spring.entity.Player"/>
+        <mapping class="com.example.spring.entity.Space"/>
 
     </session-factory>
 </hibernate-configuration>
