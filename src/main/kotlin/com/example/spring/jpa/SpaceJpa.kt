@@ -1,11 +1,11 @@
 package com.example.spring.jpa
 
-import com.example.spring.entity.Space
+import com.example.spring.entity.SpaceEntity
 import org.springframework.stereotype.Repository
 
 @Repository
-interface SpaceJpa : AbstractRepository<Space, Int> {
+interface SpaceJpa : AbstractRepository<SpaceEntity, Int> {
 
-  fun findBySpaceId(spaceId: Int): Space?
+  fun findBySpaceId(spaceId: Int): SpaceEntity?
 
 }

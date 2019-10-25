@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("hello")
 class HelloController {
 
   @Autowired
@@ -17,7 +17,7 @@ class HelloController {
     return "Hello Spring Boot!"
   }
 
-  @RequestMapping("/getUser")
+  @RequestMapping("getUser")
   fun getUser(): String {
     return "name:${properties.name}, age:${properties.age}"
   }

@@ -1,6 +1,6 @@
 package com.example.spring.mapper
 
-import com.example.spring.entity.User
+import com.example.spring.entity.UserEntity
 import org.apache.ibatis.annotations.*
 
 interface AbstractDao
@@ -13,7 +13,7 @@ interface UserMapper : AbstractDao {
       Result(property = "name", column = "name"),
       Result(property = "password", column = "password")
   )
-  fun findById(@Param("id") id: Int): User?
+  fun findById(@Param("id") id: Int): UserEntity?
 
   @Select("SELECT * FROM users where name = #{name} AND password = #{password}")
       /**
@@ -24,5 +24,5 @@ interface UserMapper : AbstractDao {
       Result(property = "password", column = "password")
       )
        */
-  fun find(@Param("name") name: String, @Param("password") password: String): User?
+  fun find(@Param("name") name: String, @Param("password") password: String): UserEntity?
 }

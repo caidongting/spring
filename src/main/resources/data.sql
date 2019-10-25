@@ -1,2 +1,2 @@
-insert player
-values (1, 'caidt')
+INSERT INTO player
+VALUES (1, 'caidt')

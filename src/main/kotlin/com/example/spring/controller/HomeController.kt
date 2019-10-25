@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam
 
 
 @Controller
+@RequestMapping("/")
 class HomeController {
 
   @Autowired
@@ -26,7 +27,7 @@ class HomeController {
     return "login"
   }
 
-  @RequestMapping("/login")
+  @RequestMapping("login")
   fun getLoginCl(@RequestParam("name") name: String,
                  @RequestParam("password") password: String): String {
     val isExist = userService.find(name, password)
@@ -36,13 +37,13 @@ class HomeController {
       "login"
   }
 
-  @GetMapping("/index")
+  @GetMapping("index")
   fun index(model: Model): String {
     model.addAttribute("name", "world")
     return "home"
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("{id}")
   fun findById(model: Model, @PathVariable(value = "id") id: Int): String {
     val user = userService.findUser(id)
     logger.info("$user")

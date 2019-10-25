@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
+@RequestMapping("redis")
 class RedisController {
 
 
@@ -17,13 +18,13 @@ class RedisController {
   @Autowired
   private lateinit var redisTemplate: RedisTemplate<String, Any>
 
-  @RequestMapping("redis/get")
+  @RequestMapping("get")
   fun get(): String {
     stringRedisTemplate.opsForValue().set("caidt", "hello world")
     return stringRedisTemplate.opsForValue()["caidt"].orEmpty()
   }
 
-  @RequestMapping("redis/get2")
+  @RequestMapping("get2")
   fun get2(): Any? {
     redisTemplate.opsForValue().set("caidt", "hello world2")
     return redisTemplate.opsForValue()["caidt"]

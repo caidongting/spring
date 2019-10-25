@@ -1,6 +1,6 @@
 package com.example.spring.service
 
-import com.example.spring.entity.User
+import com.example.spring.entity.UserEntity
 import com.example.spring.jpa.UserJpa
 import com.example.spring.mapper.UserMapper
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,7 +13,7 @@ import javax.annotation.Resource
 
 interface UserService {
 
-  fun findUser(id: Int): User?
+  fun findUser(id: Int): UserEntity?
 
   fun find(name: String, password: String): Boolean
 }
@@ -26,9 +26,10 @@ open class UserServiceImpl : UserService {
   lateinit var userJpa: UserJpa
 
   @Transactional(readOnly = true, isolation = Isolation.DEFAULT)
-  override fun findUser(id: Int): User? {
+  override fun findUser(id: Int): UserEntity? {
     userJpa.myFun()
-//    return userJpa.getX(id)
+    // return userJpa.getX(id)
+    // val user = SpaceEntityPK::class.java.newInstance()
     return userJpa.findByIdOrNull(id)
   }
 
@@ -40,16 +41,16 @@ open class UserServiceImpl : UserService {
   }
 }
 
-//@Primary
+// @Primary
 @Service
 open class UserServiceImpl2 : UserService {
 
-  //  @Autowired
+  // @Autowired
   @Resource
   lateinit var userMapper: UserMapper
 
   @Transactional(readOnly = true, isolation = Isolation.DEFAULT)
-  override fun findUser(id: Int): User? {
+  override fun findUser(id: Int): UserEntity? {
     return userMapper.findById(id)
   }
 

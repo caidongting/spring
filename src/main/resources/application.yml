@@ -1,7 +1,7 @@
 server:
   port: 8080
-#  servlet:
-#    context-path: /
+  servlet:
+    context-path: /
 
 spring:
   datasource:
@@ -31,16 +31,17 @@ spring:
       sessionFactory: org.springframework.orm.hibernate4.LocalSessionFactoryBean
       hibernate:
         dialect:
-          store_engine: innodb
+          storage_engine: innodb
 
-    mapping-resources: classpath:hibernate.xml
+    mapping-resources: classpath:hibernate.cfg.xml
 
   redis:
     host: 192.168.199.240
     port: 6379
     password: caidt
 
-    jedis:
+    #    jedis:
+    lettuce:
       pool:
         max-active: 8
         max-idle: 8
@@ -69,7 +70,8 @@ logging:
   path: logs/
 
   level:
-    com.example.spring: debug
+    com.example.spring.service: debug
+
 
 
 #---

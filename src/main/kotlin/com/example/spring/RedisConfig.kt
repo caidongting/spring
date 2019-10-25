@@ -1,5 +1,6 @@
 package com.example.spring
 
+import com.example.spring.annotation.AllOpen
 import com.fasterxml.jackson.annotation.JsonAutoDetect
 import com.fasterxml.jackson.annotation.PropertyAccessor
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -10,11 +11,12 @@ import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer
 
+@AllOpen
 @Configuration
-open class RedisConfig {
+class RedisConfig {
 
   @Bean
-  open fun redisTemplate(factory: RedisConnectionFactory): RedisTemplate<String, Any> {
+  fun redisTemplate(factory: RedisConnectionFactory): RedisTemplate<String, Any> {
     val template = RedisTemplate<String, Any>()
     template.connectionFactory = factory
     val jackson2JsonRedisSerializer = Jackson2JsonRedisSerializer(Any::class.java)
